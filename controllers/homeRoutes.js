@@ -6,12 +6,9 @@ router.get('/', async (req, res) => {
         const postData = await Post.findAll({
             include: [{ model: User }],
         })
-        const userData = await User.findAll()
-        const users = userData.map((project) => project.get({ plain: true }));
         const posts = postData.map((project) => project.get({ plain: true }));
         res.render('home', {
             posts,
-            users,
             logged_in: req.session.logged_in
         })
     } catch (err) {
@@ -30,5 +27,15 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
+
+router.get('/dashboard', (req, res) => {
+    if (req.session.logged_in) {
+        res.render('dashboard', {
+            logged_in: req.session.logged_in
+        });
+        return;
+    }
+    res.render('login');
+})
 
 module.exports = router;
