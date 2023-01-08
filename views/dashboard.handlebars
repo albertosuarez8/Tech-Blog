@@ -1,1 +1,9 @@
-<div>It works!</div>
+{{#each posts as |post| }}
+    <button type="button" class="btn btn-secondary btn-lg d-block">
+      <div class="card-header d-flex justify-content-between">
+        <div>{{post.title}}</div>
+        <div>{{post.date}}</div>
+      </div>
+    </button>
+{{/each}}
+<a class="btn btn-primary" role="button" href="/dashboard/createpost">New Post</a></button>

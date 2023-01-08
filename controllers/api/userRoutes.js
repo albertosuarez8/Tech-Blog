@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
         });
         req.session.save(() => {
             req.session.logged_in = true;
-
+            req.session.username = req.body.username;
             res.status(200).json(userData);
         });
     } catch (err) {
@@ -40,6 +40,7 @@ router.post('/login', async (req, res) => {
         }
         req.session.save(() => {
             req.session.logged_in = true;
+            req.session.username = req.body.username;
             console.log(
                 '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
                 req.session.cookie
