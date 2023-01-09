@@ -1,0 +1,61 @@
+<h2>Edit post</h2>
+
+<form class="form post-form">
+    <div class="form-group update-post">
+        <span class="input-group-text">Title</span>
+        <textarea class="form-control" id="title" aria-label="With textarea">{{postTitle}}</textarea>
+    </div>
+    <div class="form-group">
+        <span class="input-group-text">Description</span>
+        <textarea class="form-control" id="description" aria-label="With textarea">{{postDescription}}</textarea>
+    </div>
+    <div class="form-group">
+        <button id="submit" class="btn btn-primary" type="submit">Update</button>
+    </div>
+    <div class="form-group">
+        <button id="delete" class="btn btn-primary" type="button">Delete</button>
+    </div>
+</form>
+
+<script>
+    const updatePost = async (event) => {
+        event.preventDefault();
+
+        const title = document.querySelector('#title').value.trim();
+        const description = document.querySelector('#description').value.trim();
+        const id = "{{postId}}";
+
+        if (id && title && description) {
+            const response = await fetch('/api/posts/update', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: id, title: title, description: description }),
+            });
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                alert('Failed to update');
+            }
+        }
+    };
+
+    const deletePost = async (event) => {
+        event.preventDefault();
+        const id = "{{postId}}";
+
+        if (id) {
+            const response = await fetch(`/api/posts/${id}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            if (response.ok) {
+                document.location.replace('/dashboard');
+            } else {
+                alert('Failed to update');
+            }
+        }
+    };
+
+    document.querySelector('.post-form').addEventListener('submit', updatePost);
+    document.querySelector('#delete').addEventListener('click', deletePost);
+    </script>

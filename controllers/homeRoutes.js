@@ -47,4 +47,13 @@ router.get('/dashboard/createpost', withAuth, (req, res) => {
     res.render('createpost');
 });
 
+router.get('/dashboard/updatepost/:id', withAuth, async (req, res) => {
+    const postData = await Post.findByPk(req.params.id);
+    res.render('updatepost', {
+        postTitle: postData.title,
+        postDescription: postData.description,
+        postId: postData.id
+    });
+})
+
 module.exports = router;
