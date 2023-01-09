@@ -1,16 +1,17 @@
-<h2>Sign up</h2>
+<p class="fs-1">Sign up</p>
 
 <form class="form signup-form">
-    <div class="form-group">
-        <label for="username-signup">Username:</label>
-        <input class="form-input" type="text" id="username-signup" />
+    <div class="form-group mb-3">
+        <label for="username-signup" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username-signup" placeholder="albertosuarez">
     </div>
-    <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="password-signup" />
+    <div class="form-group mb-3">
+        <label for="password-signup" class="form-label">Password</label><span
+            class="text-body-secondary fst-italic fs-6"> Length must be over 10 characters</span>
+        <input type="password" class="form-control" id="password-signup" placeholder="Type your password">
     </div>
-    <div class="form-group">
-        <button class="btn btn-primary" type="submit">Sign up</button>
+    <div class="form-group mb-3">
+        <button class="btn btn-primary btn-lg d-flex w-100 justify-content-center" type="submit">Sign up</button>
     </div>
 </form>
 

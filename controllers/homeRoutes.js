@@ -50,6 +50,7 @@ router.get('/dashboard/createpost', withAuth, (req, res) => {
 router.get('/dashboard/updatepost/:id', withAuth, async (req, res) => {
     const postData = await Post.findByPk(req.params.id);
     res.render('updatepost', {
+        logged_in: req.session.logged_in,
         postTitle: postData.title,
         postDescription: postData.description,
         postId: postData.id

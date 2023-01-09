@@ -1,6 +1,6 @@
-<h2>Edit post</h2>
+<p class="fs-1">Edit post</p>
 
-<form class="form post-form">
+{{!-- <form class="form post-form">
     <div class="form-group update-post">
         <span class="input-group-text">Title</span>
         <textarea class="form-control" id="title" aria-label="With textarea">{{postTitle}}</textarea>
@@ -14,6 +14,23 @@
     </div>
     <div class="form-group">
         <button id="delete" class="btn btn-primary" type="button">Delete</button>
+    </div>
+</form> --}}
+
+<form class="form post-form">
+    <div class="form-group update-post mt-3">
+        <span class="form-label">Title</span>
+        <textarea class="form-control" id="title" aria-label="With textarea">{{postTitle}}</textarea>
+    </div>
+    <div class="form-group mt-3">
+        <span class="form-label">Description</span>
+        <textarea class="form-control" id="description" aria-label="With textarea">{{postDescription}}</textarea>
+    </div>
+    <div class="form-group d-flex justify-content-center mt-3">
+        <button id="submit" class="btn btn-primary w-100" type="submit">Update</button>
+    </div>
+    <div class="form-group d-flex justify-content-center mt-3">
+        <button id="delete" class="btn btn-primary w-100" type="button">Delete</button>
     </div>
 </form>
 

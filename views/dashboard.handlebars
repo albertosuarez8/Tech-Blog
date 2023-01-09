@@ -1,9 +1,13 @@
+<p class="fs-1">Your Dashboard</p>
+
 {{#each posts as |post| }}
-    <a href="/dashboard/updatepost/{{post.id}}" role="button" class="btn btn-secondary btn-lg d-block">
-      <div class="card-header d-flex justify-content-between">
-        <div>{{post.title}}</div>
-        <div>{{post.date}}</div>
-      </div>
-    </a>
+<a href="/dashboard/updatepost/{{post.id}}" role="button" class="btn btn-secondary btn-lg d-block mt-3">
+  <div class="card-header d-flex justify-content-between">
+    <div>{{post.title}}</div>
+    <div>{{format_time post.date}}</div>
+  </div>
+</a>
 {{/each}}
-<a class="btn btn-primary" role="button" href="/dashboard/createpost">New Post</a></button>
+<div class="d-flex justify-content-center mt-5">
+  <a class="btn btn-primary" role="button" href="/dashboard/createpost">New Post</a></button>
+</div>
